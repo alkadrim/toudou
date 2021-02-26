@@ -1,20 +1,22 @@
+import { TodoModel } from "@models/ToudouModels";
+
 export default class ToudouMockApi {
-  public static getSomeToudous(): any[] {
+  public static getSomeToudous(): TodoModel[] {
     return [
       {
         titre: "1ere tache",
         description: "La premiere tache ",
-        participant: "Moé"
+        participant: "MoÃ©"
       },
       {
         titre: "2eme tache",
         description: "Ueue 2 ",
-        participant: "Moé"
+        participant: "MoÃ©"
       },
       {
         titre: "Rien",
         description: "Pas grand chose",
-        participant: "Pas moé"
+        participant: "Pas moÃ©"
       }
     ]
   }

@@ -7,9 +7,11 @@
       />
       <div class="ToudouList-List">
         <ToudouElement
-            v-for="(todo, todoIndex) in todos"
+            v-for="(todo, todoIndex) in todos.list"
+            :key="'TodoElement-' + todoIndex"
             :todo="todo"
             @edit="edit(todoIndex)"
+            @remove="remove(todoIndex)"
         />
       </div>
     </div>

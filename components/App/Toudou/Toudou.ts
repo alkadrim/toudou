@@ -2,36 +2,36 @@ import {Vue, Component} from 'vue-property-decorator'
 import ToudouList from "@components/ToudouList"
 import ToudouEdit from "@components/ToudouEdit"
 import ToudouMockApi from "@api/ToudouMockApi"
-
-interface Todo {
-  titre: string
-  description: string
-  participant: string
-}
+import { TodoModel } from "@models/ToudouModels"
 
 /**
  * App main component
  */
 @Component({ components : { ToudouList, ToudouEdit }})
 export default class Toudou extends Vue {
-  private todos: Todo[] = []
+  private todos: TodoModel[] = []
 
   private editedTodo = {}
   private editing = false
 
   private mounted(): void {
-    this.todos = ToudouMockApi.getSomeToudous() as Todo[]
+    this.todos = ToudouMockApi.getSomeToudous()
   }
 
   private addTodo(todo): void {
     this.todos.push(todo)
+    this.exitEdit()
   }
 
   private editTodo(todo, id): void {
+    console.log(todo)
+    console.log(id)
+    console.log(this.todos[id])
     if (!this.todos[id]) {
       return
     }
     this.todos[id] = todo
+    this.exitEdit()
   }
 
   private launchAdd(): void {
@@ -63,7 +63,7 @@ export default class Toudou extends Vue {
   }
 
   private submitEdit(todo): void {
-    if (todo.id) {
+    if (todo.id !== null) {
       const id = todo.id
       delete todo.id
       this.editTodo(todo, id)
@@ -72,5 +72,13 @@ export default class Toudou extends Vue {
       delete todo.id
       this.addTodo(todo)
     }
+  }
+
+  private removeTodo(id): void {
+    this.exitEdit()
+    if (!this.todos[id]) {
+      return;
+    }
+    this.todos.splice(id, 1)
   }
 }

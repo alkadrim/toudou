@@ -10,8 +10,20 @@
 }
 .ToudouElement-Participant {
   color: #5c6bc0;
+  margin-bottom: 8px;
 }
 .ToudouElement-Description {
   color: #5c6bc0;
-  margin-bottom: 8px;
+}
+
+.ToudouElement-Titre,
+.ToudouElement-Participant,
+.ToudouElement-Description {
+  display: flex;
+}
+
+.ToudouElement-Label {
+  color: #303f9f;
+  font-style: italic;
+  margin-right: 8px;
 }

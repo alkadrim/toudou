@@ -2,9 +2,10 @@
   <div class="Toudou">
     <div class="Toudou-List">
       <ToudouList
-        :todos="todos"
+        :todos="{ list: todos}"
         @add="launchAdd"
         @edit="launchEdit"
+        @remove="removeTodo"
       />
     </div>
     <div
