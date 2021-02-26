@@ -1,0 +1,22 @@
+.TextField {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+}
+
+.TextField-Label {
+  font-size: 12px;
+  color: #5c6bc0;
+}
+
+.TextField-Field {
+  border-bottom: 2px solid #5c6bc0;
+}
+
+.TextField-Field > input {
+  font-size: 14px;
+  background: none;
+  border: none;
+  outline: none;
+  color: #5c6bc0;
+}

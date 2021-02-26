@@ -1,0 +1,11 @@
+.Toudou {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.Toudou-List,
+.Toudou-Edit {
+  flex: 1;
+  padding: 24px;
+}
